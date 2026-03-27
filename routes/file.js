@@ -63,8 +63,7 @@ router.post("/generate-link", async (req, res) => {
     });
 
     res.json({
-      link: `http://localhost:5000/api/files/share/${token}`
-    });
+      link: `${process.env.BASE_URL}/api/files/share/${token}`    });
 
   } catch (err) {
     console.error(err);

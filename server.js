@@ -9,6 +9,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+
 // ✅ VERY IMPORTANT LINE
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
@@ -22,6 +24,6 @@ app.use("/api/admin", require("./routes/admin"));
 app.use("/api/files", require("./routes/file")); // if you created
 app.use("/uploads", express.static("uploads"));
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 });
